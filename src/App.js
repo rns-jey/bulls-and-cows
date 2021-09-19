@@ -89,6 +89,12 @@ function App() {
       giveMsg(prevMsg => "Duplicates!")
       return;
     }
+
+    if (bulls === 4) {
+      giveMsg(prevMsg => "You win!!!!!!!!")
+    } else {
+      giveMsg(prevMsg => "Bulls: " + bulls + ", Cows: " + (cows - bulls))
+    }
   }
 
   return (
