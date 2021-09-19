@@ -52,6 +52,10 @@ function App() {
     }
   }
 
+  function isMatched(a,b) {
+    return (a === b)
+  }
+
   function handleSubmit() {
     let arrCode = [...code]
     let arrGuess = [...guess]
