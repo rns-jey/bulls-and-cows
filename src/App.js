@@ -56,6 +56,24 @@ function App() {
     return (a === b)
   }
 
+  function duplicates() {
+    let arrGuess = [...guess]
+
+    if (arrGuess[0] === arrGuess[1] || arrGuess[0] === arrGuess[2] || arrGuess[0] === arrGuess[3]) {
+      return "duplicates!"
+    }
+
+    if (arrGuess[1] === arrGuess[2] || arrGuess[1] === arrGuess[3]) {
+      return "duplicates!"
+    }
+
+    if (arrGuess[2] === arrGuess[3]) {
+      return "Duplicates!"
+    }
+
+    return "";
+  }
+
   function handleSubmit() {
     let arrCode = [...code]
     let arrGuess = [...guess]
