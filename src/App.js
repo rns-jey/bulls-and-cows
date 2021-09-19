@@ -33,18 +33,18 @@ function App() {
     <div className="Main">
       <div>
         <div className="container">
-          <div className="tile top1">{otherNumbers("top",0)}</div>
-          <div className="tile top2">{otherNumbers("top",1)}</div>
-          <div className="tile top3">{otherNumbers("top",2)}</div>
-          <div className="tile top4">{otherNumbers("top",3)}</div>
+          <div className="tile top1" id="top0">{otherNumbers("top",0)}</div>
+          <div className="tile top2" id="top1">{otherNumbers("top",1)}</div>
+          <div className="tile top3" id="top2">{otherNumbers("top",2)}</div>
+          <div className="tile top4" id="top3">{otherNumbers("top",3)}</div>
           <div className="tile num1">{guess[0]}</div>
           <div className="tile num2">{guess[1]}</div>
           <div className="tile num3">{guess[2]}</div>
           <div className="tile num4">{guess[3]}</div>
-          <div className="tile bot1">{otherNumbers("bot",0)}</div>
-          <div className="tile bot2">{otherNumbers("bot",1)}</div>
-          <div className="tile bot3">{otherNumbers("bot",2)}</div>
-          <div className="tile bot4">{otherNumbers("bot",3)}</div>
+          <div className="tile bot1" id="bot0">{otherNumbers("bot",0)}</div>
+          <div className="tile bot2" id="bot1">{otherNumbers("bot",1)}</div>
+          <div className="tile bot3" id="bot2">{otherNumbers("bot",2)}</div>
+          <div className="tile bot4" id="bot3">{otherNumbers("bot",3)}</div>
         </div>
         <button onClick={startGame}>Game Start!</button>
       </div>
