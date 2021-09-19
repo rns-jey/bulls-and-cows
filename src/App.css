@@ -21,7 +21,7 @@ body {
   grid-template-columns: 100px 100px 100px 100px;
   grid-template-rows: 100px 120px 100px;
   grid-auto-columns: 100px;
-  gap: 1px 1px;
+  gap: 5px 5px;
   grid-auto-flow: row;
   grid-template-areas:
     "top1 top2 top3 top4"
