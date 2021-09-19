@@ -66,6 +66,11 @@ function App() {
       bulls = isMatched(arrCode[i],arrGuess[i].toString()) === true ? bulls + 1 : bulls;
       cows = arrCode.includes(arrGuess[i].toString()) === true ? cows + 1 : cows;
     }
+
+    if (duplicates().length > 0) {
+      giveMsg(prevMsg => "Duplicates!")
+      return;
+    }
   }
 
   return (
