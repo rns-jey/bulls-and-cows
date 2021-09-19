@@ -6,7 +6,7 @@ function App() {
   const [code, generateCode] = useState("");
   const [guess, guessWhat] = useState([0,1,2,3]);
   const [message, giveMsg] = useState("");
-
+  
   function startGame() {
     let secretCode = "";
     let numArr = numbers;
@@ -52,6 +52,10 @@ function App() {
     }
   }
 
+  function handleSubmit() {
+    
+  }
+
   return (
     <div className="Main">
       <div>
@@ -70,6 +74,7 @@ function App() {
           <div className="tile bot4" id="bot3" onClick={handleClick}>{otherNumbers("bot",3)}</div>
         </div>
         <button onClick={startGame}>Game Start!</button>
+        <button onClick={handleSubmit}>Get Combination!</button>
       </div>
     </div>
   );
