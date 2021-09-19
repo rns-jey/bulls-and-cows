@@ -117,6 +117,7 @@ function App() {
         <button onClick={startGame}>Game Start!</button>
         <button onClick={handleSubmit}>Get Combination!</button>
       </div>
+      <h1>{message}</h1>
     </div>
   );
 }
