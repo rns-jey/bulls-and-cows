@@ -19,22 +19,32 @@ function App() {
     generateCode(prevCode => secretCode);
   }
 
+  function otherNumbers(pos,i) {
+    let digit = parseInt(guess[i])
+    switch (pos) {
+      case "top":
+        return (digit === 0) ? 9 : (digit - 1);
+      case "bot":
+        return (digit === 9) ? 0 : (digit + 1);
+    }
+  }
+
   return (
     <div className="Main">
       <div>
         <div className="container">
-          <div className="tile top1"></div>
-          <div className="tile top2"></div>
-          <div className="tile top3"></div>
-          <div className="tile top4"></div>
+          <div className="tile top1">{otherNumbers("top",0)}</div>
+          <div className="tile top2">{otherNumbers("top",1)}</div>
+          <div className="tile top3">{otherNumbers("top",2)}</div>
+          <div className="tile top4">{otherNumbers("top",3)}</div>
           <div className="tile num1">{guess[0]}</div>
           <div className="tile num2">{guess[1]}</div>
           <div className="tile num3">{guess[2]}</div>
           <div className="tile num4">{guess[3]}</div>
-          <div className="tile bot1"></div>
-          <div className="tile bot2"></div>
-          <div className="tile bot3"></div>
-          <div className="tile bot4"></div>
+          <div className="tile bot1">{otherNumbers("bot",0)}</div>
+          <div className="tile bot2">{otherNumbers("bot",1)}</div>
+          <div className="tile bot3">{otherNumbers("bot",2)}</div>
+          <div className="tile bot4">{otherNumbers("bot",3)}</div>
         </div>
         <button onClick={startGame}>Game Start!</button>
       </div>
