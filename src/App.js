@@ -53,7 +53,15 @@ function App() {
   }
 
   function handleSubmit() {
-    
+    let arrCode = [...code]
+    let arrGuess = [...guess]
+    let bulls = 0
+    let cows = 0
+
+    for (let i = 0; i < 4; i++) {
+      bulls = isMatched(arrCode[i],arrGuess[i].toString()) === true ? bulls + 1 : bulls;
+      cows = arrCode.includes(arrGuess[i].toString()) === true ? cows + 1 : cows;
+    }
   }
 
   return (
