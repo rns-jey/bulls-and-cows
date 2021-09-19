@@ -103,6 +103,15 @@ function App() {
     giveMsg(prevMsg => "")
   }
 
+  function giveUp() {
+    let arrCode = [...code]
+
+    if (arrCode.length > 0) {
+      guessWhat(prevGuess => [...code]);
+      giveMsg(prevMsg => "You Lose!")
+    }
+  }
+
   return (
     <div className="Main">
       <div>
@@ -123,6 +132,7 @@ function App() {
         <button onClick={startGame}>Game Start!</button>
         <button onClick={newGame}>New Game!</button>
         <button onClick={handleSubmit}>Get Combination!</button>
+        <button onClick={giveUp}>Give Up?</button>
       </div>
       <h1>{message}</h1>
     </div>
