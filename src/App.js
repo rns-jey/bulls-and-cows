@@ -97,6 +97,12 @@ function App() {
     }
   }
 
+  function newGame() {
+    change()
+    guessWhat(prevGuess => [0,1,2,3]);
+    giveMsg(prevMsg => "")
+  }
+
   return (
     <div className="Main">
       <div>
@@ -115,6 +121,7 @@ function App() {
           <div className="tile bot4" id="bot3" onClick={handleClick}>{otherNumbers("bot",3)}</div>
         </div>
         <button onClick={startGame}>Game Start!</button>
+        <button onClick={newGame}>New Game!</button>
         <button onClick={handleSubmit}>Get Combination!</button>
       </div>
       <h1>{message}</h1>
