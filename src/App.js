@@ -98,7 +98,7 @@ function App() {
   }
 
   function newGame() {
-    change()
+    startGame()
     guessWhat(prevGuess => [0,1,2,3]);
     giveMsg(prevMsg => "")
   }
