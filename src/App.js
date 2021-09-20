@@ -115,20 +115,31 @@ function App() {
   return (
     <div className="Main">
       <div>
-        <div className="container">
-          <div className="tile top1" id="top0" onClick={handleClick}>{otherNumbers("top",0)}</div>
-          <div className="tile top2" id="top1" onClick={handleClick}>{otherNumbers("top",1)}</div>
-          <div className="tile top3" id="top2" onClick={handleClick}>{otherNumbers("top",2)}</div>
-          <div className="tile top4" id="top3" onClick={handleClick}>{otherNumbers("top",3)}</div>
-          <div className="tile num1">{guess[0]}</div>
-          <div className="tile num2">{guess[1]}</div>
-          <div className="tile num3">{guess[2]}</div>
-          <div className="tile num4">{guess[3]}</div>
-          <div className="tile bot1" id="bot0" onClick={handleClick}>{otherNumbers("bot",0)}</div>
-          <div className="tile bot2" id="bot1" onClick={handleClick}>{otherNumbers("bot",1)}</div>
-          <div className="tile bot3" id="bot2" onClick={handleClick}>{otherNumbers("bot",2)}</div>
-          <div className="tile bot4" id="bot3" onClick={handleClick}>{otherNumbers("bot",3)}</div>
+      <div className="lockContainer">
+        <div id="digit0">
+          <div className="lockDigit lockDigitPrev"></div>
+          <div className="lockDigit lockDigitCur">{guess[0]}</div>
+          <div className="lockDigit lockDigitNext"></div>
         </div>
+        <div id="digit1">
+          <div className="lockDigit lockDigitPrev">{otherNumbers("top",1)}</div>
+          <div className="lockDigit lockDigitCur">{guess[1]}</div>
+          <div className="lockDigit lockDigitNext">{otherNumbers("bot",1)}</div>
+        </div>
+        <div id="digit2">
+          <div className="lockDigit lockDigitPrev">{otherNumbers("top",2)}</div>
+          <div className="lockDigit lockDigitCur">{guess[2]}</div>
+          <div className="lockDigit lockDigitNext">{otherNumbers("bot",2)}</div>
+        </div>
+        <div id="digit3">
+          <div className="lockDigit lockDigitPrev">{otherNumbers("top",3)}</div>
+          <div className="lockDigit lockDigitCur">{guess[3]}</div>
+          <div className="lockDigit lockDigitNext">{otherNumbers("bot",3)}</div>
+        </div>
+      </div>
+      <div className="btnContainer">
+        <button id="getBtn">🔒</button>
+      </div>
         <button onClick={startGame}>Game Start!</button>
         <button onClick={newGame}>New Game!</button>
         <button onClick={handleSubmit}>Get Combination!</button>

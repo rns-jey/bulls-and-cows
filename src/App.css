@@ -88,3 +88,19 @@ body {
   cursor: pointer;
   font-size: 2rem;
 }
+
+.lockContainer {
+  width: 400px;
+  height: 228px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px #000 solid;
+  border-radius: 5px;
+  user-select: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(51, 51, 51, 1) 0%,
+    rgba(17, 17, 17, 1) 51%,
+    rgba(51, 51, 51, 1) 100%
+  );
+}
