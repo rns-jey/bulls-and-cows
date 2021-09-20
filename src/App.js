@@ -139,7 +139,7 @@ function App() {
       <div>
       <div className="lockContainer">
         <div className={clsDigit1} id="digit0">
-          <div className="lockDigit lockDigitPrev" onMouseDown={wheelPressed}>{otherNumbers("top",0)}</div>
+          <div className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",0)}</div>
           <div className="lockDigit lockDigitCur">{guess[0]}</div>
           <div className="lockDigit lockDigitNext">{otherNumbers("bot",0)}</div>
         </div>
