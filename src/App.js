@@ -26,12 +26,8 @@ function App() {
 
   function otherNumbers(pos,i) {
     let digit = parseInt(guess[i])
-    switch (pos) {
-      case "top":
-        return (digit === 0) ? 9 : (digit - 1);
-      case "bot":
-        return (digit === 9) ? 0 : (digit + 1);
-    }
+
+    return (pos === "top" ? ((digit === 0) ? 9 : (digit - 1)) : ((digit === 9) ? 0 : (digit + 1)));
   }
 
   function wheelPressed (e) {
