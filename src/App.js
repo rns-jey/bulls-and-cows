@@ -62,6 +62,18 @@ function App() {
     }
   }
 
+  function setDigit(pos,i) {
+    let newArr = [...guess]
+
+    if (pos === "top") {
+      newArr[i] = (newArr[i] === 9) ? 0 : (newArr[i] + 1);
+    } else {
+      newArr[i] = (newArr[i] === 0) ? 9 : (newArr[i] - 1);
+    }
+
+    guessWhat(prevGuess => newArr)
+  }
+
   function isMatched(a,b) {
     return (a === b)
   }
