@@ -265,3 +265,28 @@ body {
 .btnContainer button:hover {
   color: #aaa;
 }
+
+.ScreenContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 75px;
+  background: linear-gradient(
+    to bottom,
+    rgba(51, 51, 51, 1) 0%,
+    rgba(17, 17, 17, 1) 51%,
+    rgba(51, 51, 51, 1) 100%
+  );
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#BtnGiveUp,
+#BtnNewGame {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+}

@@ -40,44 +40,48 @@ function App() {
     let pos = [...id]
     let i = pos.pop()
 
-    switch (i) {
-      case "0":
-        className === "lockDigit lockDigitPrev" ?  depress1(prevCls => "lockDigitContainer depressed") : depress1(prevCls => "lockDigitContainer depressed");
-        break;
-      case "1":
-        className === "lockDigit lockDigitPrev" ?  depress2(prevCls => "lockDigitContainer depressed") : depress2(prevCls => "lockDigitContainer depressed");
-        break;
-      case "2":
-        className === "lockDigit lockDigitPrev" ?  depress3(prevCls => "lockDigitContainer depressed") : depress3(prevCls => "lockDigitContainer depressed");
-        break;
-      default:
-        className === "lockDigit lockDigitPrev" ?  depress4(prevCls => "lockDigitContainer depressed") : depress4(prevCls => "lockDigitContainer depressed");
-        break;
+    if (message !== "You win!!!!!!!!!!!" && message !== "You Lose!") {
+      switch (i) {
+        case "0":
+          className === "lockDigit lockDigitPrev" ?  depress1(prevCls => "lockDigitContainer depressed") : depress1(prevCls => "lockDigitContainer depressed");
+          break;
+        case "1":
+          className === "lockDigit lockDigitPrev" ?  depress2(prevCls => "lockDigitContainer depressed") : depress2(prevCls => "lockDigitContainer depressed");
+          break;
+        case "2":
+          className === "lockDigit lockDigitPrev" ?  depress3(prevCls => "lockDigitContainer depressed") : depress3(prevCls => "lockDigitContainer depressed");
+          break;
+        default:
+          className === "lockDigit lockDigitPrev" ?  depress4(prevCls => "lockDigitContainer depressed") : depress4(prevCls => "lockDigitContainer depressed");
+          break;
+      }
     }
   }
 
   function wheelMoved (e) {
-    const { id, className } = e.target
-    let pos = [...id]
-    let i = pos.pop()
+    if (message !== "You win!!!!!!!!!!!" && message !== "You Lose!") {
+      const { id, className } = e.target
+      let pos = [...id]
+      let i = pos.pop()
 
-    pos = pos.join("")
+      pos = pos.join("")
 
-    setDigit(pos,i)
+      setDigit(pos,i)
 
-    switch (i) {
-      case "0":
-        className === "lockDigit lockDigitPrev" ?  depress1(prevCls => "lockDigitContainer") : depress1(prevCls => "lockDigitContainer");
-        break;
-      case "1":
-        className === "lockDigit lockDigitPrev" ?  depress2(prevCls => "lockDigitContainer") : depress2(prevCls => "lockDigitContainer");
-        break;
-      case "2":
-        className === "lockDigit lockDigitPrev" ?  depress3(prevCls => "lockDigitContainer") : depress3(prevCls => "lockDigitContainer");
-        break;
-      default:
-        className === "lockDigit lockDigitPrev" ?  depress4(prevCls => "lockDigitContainer") : depress4(prevCls => "lockDigitContainer");
-        break;
+      switch (i) {
+        case "0":
+          className === "lockDigit lockDigitPrev" ?  depress1(prevCls => "lockDigitContainer") : depress1(prevCls => "lockDigitContainer");
+          break;
+        case "1":
+          className === "lockDigit lockDigitPrev" ?  depress2(prevCls => "lockDigitContainer") : depress2(prevCls => "lockDigitContainer");
+          break;
+        case "2":
+          className === "lockDigit lockDigitPrev" ?  depress3(prevCls => "lockDigitContainer") : depress3(prevCls => "lockDigitContainer");
+          break;
+        default:
+          className === "lockDigit lockDigitPrev" ?  depress4(prevCls => "lockDigitContainer") : depress4(prevCls => "lockDigitContainer");
+          break;
+      }
     }
   }
 
@@ -151,15 +155,22 @@ function App() {
 
   return (
     <div className="Main">
+      <button id="BtnNewGame" onClick={newGame}>New Game!</button>
+      <button id="BtnGiveUp" onClick={giveUp}>Give Up?</button>
       <div className={introCls}>
         <div className="IntroHeader">
           <h1 id="intro">Let's Play a game</h1>
           <button onClick={startGame}>Game Start!</button>
         </div>
-        
         <img id="theGM" src={jigbull} alt="Jigbull the GM" />
       </div>
       <div className="Game">
+        <div className="ScreenContainer">
+          <div className="GameScreen">
+            <h1>{message}</h1>
+          </div>
+          
+        </div>
         <div className="lockContainer">
           <div className={clsDigit1} id="digit0">
             <div id="top0" className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",0)}</div>
@@ -185,10 +196,7 @@ function App() {
         <div className="btnContainer">
           <button id="getBtn" onClick={handleSubmit}>🔒</button>
         </div>
-        <button onClick={newGame}>New Game!</button>
-        <button onClick={giveUp}>Give Up?</button>
       </div>
-      <h1>{message}</h1>
     </div>
   );
 }
