@@ -183,10 +183,9 @@ function App() {
           </div>
         </div>
         <div className="btnContainer">
-          <button id="getBtn">🔒</button>
+          <button id="getBtn" onClick={handleSubmit}>🔒</button>
         </div>
         <button onClick={newGame}>New Game!</button>
-        <button onClick={handleSubmit}>Get Combination!</button>
         <button onClick={giveUp}>Give Up?</button>
       </div>
       <h1>{message}</h1>
