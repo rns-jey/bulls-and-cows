@@ -121,9 +121,9 @@ function App() {
       <div>
       <div className="lockContainer">
         <div className={clsDigit1} id="digit0">
-          <div className="lockDigit lockDigitPrev"></div>
+          <div className="lockDigit lockDigitPrev">{otherNumbers("top",0)}</div>
           <div className="lockDigit lockDigitCur">{guess[0]}</div>
-          <div className="lockDigit lockDigitNext"></div>
+          <div className="lockDigit lockDigitNext">{otherNumbers("bot",0)}</div>
         </div>
         <div className={clsDigit2} id="digit1">
           <div className="lockDigit lockDigitPrev">{otherNumbers("top",1)}</div>
