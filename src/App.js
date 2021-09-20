@@ -6,6 +6,10 @@ function App() {
   const [code, generateCode] = useState("");
   const [guess, guessWhat] = useState([0,1,2,3]);
   const [message, giveMsg] = useState("");
+  const [clsDigit1, depress1] = useState("lockDigitContainer");
+  const [clsDigit2, depress2] = useState("lockDigitContainer");
+  const [clsDigit3, depress3] = useState("lockDigitContainer");
+  const [clsDigit4, depress4] = useState("lockDigitContainer");
   
   function startGame() {
     let secretCode = "";
@@ -116,22 +120,22 @@ function App() {
     <div className="Main">
       <div>
       <div className="lockContainer">
-        <div id="digit0">
+        <div className={clsDigit1} id="digit0">
           <div className="lockDigit lockDigitPrev"></div>
           <div className="lockDigit lockDigitCur">{guess[0]}</div>
           <div className="lockDigit lockDigitNext"></div>
         </div>
-        <div id="digit1">
+        <div className={clsDigit2} id="digit1">
           <div className="lockDigit lockDigitPrev">{otherNumbers("top",1)}</div>
           <div className="lockDigit lockDigitCur">{guess[1]}</div>
           <div className="lockDigit lockDigitNext">{otherNumbers("bot",1)}</div>
         </div>
-        <div id="digit2">
+        <div className={clsDigit3} id="digit2">
           <div className="lockDigit lockDigitPrev">{otherNumbers("top",2)}</div>
           <div className="lockDigit lockDigitCur">{guess[2]}</div>
           <div className="lockDigit lockDigitNext">{otherNumbers("bot",2)}</div>
         </div>
-        <div id="digit3">
+        <div className={clsDigit4} id="digit3">
           <div className="lockDigit lockDigitPrev">{otherNumbers("top",3)}</div>
           <div className="lockDigit lockDigitCur">{guess[3]}</div>
           <div className="lockDigit lockDigitNext">{otherNumbers("bot",3)}</div>
