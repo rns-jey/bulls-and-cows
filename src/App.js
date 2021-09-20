@@ -13,6 +13,8 @@ function App() {
   const [clsDigit2, depress2] = useState("lockDigitContainer");
   const [clsDigit3, depress3] = useState("lockDigitContainer");
   const [clsDigit4, depress4] = useState("lockDigitContainer");
+  const [quitDisabled, disableQuit] = useState("hidden");
+  const [newGameDisabled, disableNewGame] = useState("hidden");
   
   function startGame() {
     let secretCode = "";
@@ -26,6 +28,8 @@ function App() {
       secretCode += numArr.splice(randNum,1).toString();
     }
     
+    disableQuit(prevVisible => "visible");
+    disableNewGame(prevVisible => "hidden");
     generateCode(prevCode => secretCode);
   }
 
@@ -133,6 +137,8 @@ function App() {
 
     if (bulls === 4) {
       giveMsg(prevMsg => "You win!!!!!!!!")
+      disableQuit(prevVisible => "hidden");
+      disableNewGame(prevVisible => "visible");
     } else {
       giveMsg(prevMsg => "Bulls: " + bulls + ", Cows: " + (cows - bulls))
     }
@@ -142,6 +148,8 @@ function App() {
     startGame()
     guessWhat(prevGuess => [0,1,2,3]);
     giveMsg(prevMsg => "")
+    disableQuit(prevVisible => "visible");
+    disableNewGame(prevVisible => "hidden");
   }
 
   function giveUp() {
@@ -150,13 +158,13 @@ function App() {
     if (arrCode.length > 0) {
       guessWhat(prevGuess => [...code]);
       giveMsg(prevMsg => "You Lose!")
+      disableQuit(prevVisible => "hidden");
+      disableNewGame(prevVisible => "visible");
     }
   }
 
   return (
     <div className="Main">
-      <button id="BtnNewGame" onClick={newGame}>New Game!</button>
-      <button id="BtnGiveUp" onClick={giveUp}>Give Up?</button>
       <div className={introCls}>
         <div className="IntroHeader">
           <h1 id="intro">Let's Play a game</h1>
@@ -165,6 +173,8 @@ function App() {
         <img id="theGM" src={jigbull} alt="Jigbull the GM" />
       </div>
       <div className="Game">
+        <button id="BtnNewGame" style={{visibility: newGameDisabled}} onClick={newGame}>New Game!</button>
+        <button id="BtnGiveUp" style={{visibility: quitDisabled}} onClick={giveUp}>Give Up?</button>
         <div className="ScreenContainer">
           <div className="GameScreen">
             <h1>{message}</h1>
