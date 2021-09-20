@@ -47,6 +47,21 @@ function App() {
     }
   }
 
+  function wheelMoved (e) {
+    const { id, className } = e.target
+
+    switch (className) {
+      case "lockDigit lockDigitPrev":
+        setDigit("top",0)
+        depress1(prevCls => "lockDigitContainer");
+        break;
+      default:
+        setDigit("bot",0)
+        depress1(prevCls => "lockDigitContainer");
+        break;
+    }
+  }
+
   function isMatched(a,b) {
     return (a === b)
   }
