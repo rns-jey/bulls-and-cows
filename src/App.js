@@ -35,29 +35,47 @@ function App() {
   }
 
   function wheelPressed (e) {
-    const { className } = e.target
+    const { id, className } = e.target
+    let pos = [...id]
+    let i = pos.pop()
 
-    switch (className) {
-      case "lockDigit lockDigitPrev":
-        depress1(prevCls => "lockDigitContainer depressed");
+    switch (i) {
+      case "0":
+        className === "lockDigit lockDigitPrev" ?  depress1(prevCls => "lockDigitContainer depressed") : depress1(prevCls => "lockDigitContainer depressed");
+        break;
+      case "1":
+        className === "lockDigit lockDigitPrev" ?  depress2(prevCls => "lockDigitContainer depressed") : depress2(prevCls => "lockDigitContainer depressed");
+        break;
+      case "2":
+        className === "lockDigit lockDigitPrev" ?  depress3(prevCls => "lockDigitContainer depressed") : depress3(prevCls => "lockDigitContainer depressed");
         break;
       default:
-        depress1(prevCls => "lockDigitContainer depressed");
+        className === "lockDigit lockDigitPrev" ?  depress4(prevCls => "lockDigitContainer depressed") : depress4(prevCls => "lockDigitContainer depressed");
         break;
     }
   }
 
   function wheelMoved (e) {
     const { id, className } = e.target
+    let pos = [...id]
+    let i = pos.pop()
 
-    switch (className) {
-      case "lockDigit lockDigitPrev":
-        setDigit("top",0)
-        depress1(prevCls => "lockDigitContainer");
+    pos = pos.join("")
+
+    setDigit(pos,i)
+
+    switch (i) {
+      case "0":
+        className === "lockDigit lockDigitPrev" ?  depress1(prevCls => "lockDigitContainer") : depress1(prevCls => "lockDigitContainer");
+        break;
+      case "1":
+        className === "lockDigit lockDigitPrev" ?  depress2(prevCls => "lockDigitContainer") : depress2(prevCls => "lockDigitContainer");
+        break;
+      case "2":
+        className === "lockDigit lockDigitPrev" ?  depress3(prevCls => "lockDigitContainer") : depress3(prevCls => "lockDigitContainer");
         break;
       default:
-        setDigit("bot",0)
-        depress1(prevCls => "lockDigitContainer");
+        className === "lockDigit lockDigitPrev" ?  depress4(prevCls => "lockDigitContainer") : depress4(prevCls => "lockDigitContainer");
         break;
     }
   }
@@ -137,31 +155,31 @@ function App() {
   return (
     <div className="Main">
       <div>
-      <div className="lockContainer">
-        <div className={clsDigit1} id="digit0">
-          <div className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",0)}</div>
-          <div className="lockDigit lockDigitCur">{guess[0]}</div>
-          <div className="lockDigit lockDigitNext">{otherNumbers("bot",0)}</div>
+        <div className="lockContainer">
+          <div className={clsDigit1} id="digit0">
+            <div id="top0" className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",0)}</div>
+            <div className="lockDigit lockDigitCur">{guess[0]}</div>
+            <div id="bot0" className="lockDigit lockDigitNext" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("bot",0)}</div>
+          </div>
+          <div className={clsDigit2} id="digit1">
+            <div id="top1" className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",1)}</div>
+            <div className="lockDigit lockDigitCur">{guess[1]}</div>
+            <div id="bot1" className="lockDigit lockDigitNext" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("bot",1)}</div>
+          </div>
+          <div className={clsDigit3} id="digit2">
+            <div id="top2" className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",2)}</div>
+            <div className="lockDigit lockDigitCur">{guess[2]}</div>
+            <div id="bot2" className="lockDigit lockDigitNext" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("bot",2)}</div>
+          </div>
+          <div className={clsDigit4} id="digit3">
+            <div id="top3" className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",3)}</div>
+            <div className="lockDigit lockDigitCur">{guess[3]}</div>
+            <div id="bot3" className="lockDigit lockDigitNext" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("bot",3)}</div>
+          </div>
         </div>
-        <div className={clsDigit2} id="digit1">
-          <div className="lockDigit lockDigitPrev">{otherNumbers("top",1)}</div>
-          <div className="lockDigit lockDigitCur">{guess[1]}</div>
-          <div className="lockDigit lockDigitNext">{otherNumbers("bot",1)}</div>
+        <div className="btnContainer">
+          <button id="getBtn">🔒</button>
         </div>
-        <div className={clsDigit3} id="digit2">
-          <div className="lockDigit lockDigitPrev">{otherNumbers("top",2)}</div>
-          <div className="lockDigit lockDigitCur">{guess[2]}</div>
-          <div className="lockDigit lockDigitNext">{otherNumbers("bot",2)}</div>
-        </div>
-        <div className={clsDigit4} id="digit3">
-          <div className="lockDigit lockDigitPrev">{otherNumbers("top",3)}</div>
-          <div className="lockDigit lockDigitCur">{guess[3]}</div>
-          <div className="lockDigit lockDigitNext">{otherNumbers("bot",3)}</div>
-        </div>
-      </div>
-      <div className="btnContainer">
-        <button id="getBtn">🔒</button>
-      </div>
         <button onClick={startGame}>Game Start!</button>
         <button onClick={newGame}>New Game!</button>
         <button onClick={handleSubmit}>Get Combination!</button>
