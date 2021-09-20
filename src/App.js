@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+import jigbull from './jigbull.jpg'; // with import
 
 function App() {
   const numbers = [0,1,2,3,4,5,6,7,8,9];
+  const [introCls, introFade] = useState("GMContainer");
   const [code, generateCode] = useState("");
   const [guess, guessWhat] = useState([0,1,2,3]);
   const [message, giveMsg] = useState("");
@@ -14,6 +16,8 @@ function App() {
   function startGame() {
     let secretCode = "";
     let numArr = numbers;
+
+    introFade(prevCls => "GMContainer fadeOut");
 
     while (secretCode.length < 4) {
       let randNum = Math.floor(Math.random() * numArr.length)
@@ -150,7 +154,15 @@ function App() {
 
   return (
     <div className="Main">
-      <div>
+      <div className={introCls}>
+        <div className="IntroHeader">
+          <h1 id="intro">Let's Play a game</h1>
+          <button onClick={startGame}>Game Start!</button>
+        </div>
+        
+        <img id="theGM" src={jigbull} alt="Jigbull the GM" />
+      </div>
+      <div className="Game">
         <div className="lockContainer">
           <div className={clsDigit1} id="digit0">
             <div id="top0" className="lockDigit lockDigitPrev" onMouseDown={wheelPressed} onMouseUp={wheelMoved}>{otherNumbers("top",0)}</div>
@@ -176,7 +188,6 @@ function App() {
         <div className="btnContainer">
           <button id="getBtn">🔒</button>
         </div>
-        <button onClick={startGame}>Game Start!</button>
         <button onClick={newGame}>New Game!</button>
         <button onClick={handleSubmit}>Get Combination!</button>
         <button onClick={giveUp}>Give Up?</button>
