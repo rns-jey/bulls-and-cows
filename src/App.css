@@ -238,3 +238,30 @@ body {
     rgba(0, 0, 0, 1) 100%
   );
 }
+
+.btnContainer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btnContainer button {
+  color: #fff;
+  border: 1px #333 solid;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+  font-size: 3.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(51, 51, 51, 1) 0%,
+    rgba(17, 17, 17, 1) 51%,
+    rgba(51, 51, 51, 1) 100%
+  );
+}
+
+.btnContainer button:hover {
+  color: #aaa;
+}
