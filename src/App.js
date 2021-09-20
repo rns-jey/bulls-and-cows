@@ -34,25 +34,16 @@ function App() {
     }
   }
 
-  function handleClick(e) {
-    if (message !== "You Lose!") {
-      const { id } = e.target
-      let newArr = [...guess]
-      let pos = [...id]
-      let i = pos.pop();
+  function wheelPressed (e) {
+    const { className } = e.target
 
-      pos = pos.join("")
-
-      switch (pos) {
-        case "top":
-          newArr[i] = (newArr[i] === 9) ? 0 : (newArr[i] + 1);
-          break;
-        default:
-          newArr[i] = (newArr[i] === 0) ? 9 : (newArr[i] - 1);
-          break;
-      }
-      
-      guessWhat(prevGuess => newArr);
+    switch (className) {
+      case "lockDigit lockDigitPrev":
+        depress1(prevCls => "lockDigitContainer depressed");
+        break;
+      default:
+        depress1(prevCls => "lockDigitContainer depressed");
+        break;
     }
   }
 
@@ -121,7 +112,7 @@ function App() {
       <div>
       <div className="lockContainer">
         <div className={clsDigit1} id="digit0">
-          <div className="lockDigit lockDigitPrev">{otherNumbers("top",0)}</div>
+          <div className="lockDigit lockDigitPrev" onMouseDown={wheelPressed}>{otherNumbers("top",0)}</div>
           <div className="lockDigit lockDigitCur">{guess[0]}</div>
           <div className="lockDigit lockDigitNext">{otherNumbers("bot",0)}</div>
         </div>

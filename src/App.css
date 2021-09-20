@@ -162,3 +162,35 @@ body {
     rgba(17, 17, 17, 1) 100%
   );
 }
+
+.lockDigitContainer.depressed .lockDigitPrev {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(204, 204, 204, 1) 90%,
+    rgba(51, 51, 51, 1) 90%,
+    rgba(51, 51, 51, 1) 100%
+  );
+}
+
+.lockDigitContainer.depressed .lockDigitCur {
+  background: linear-gradient(
+    to bottom,
+    rgba(204, 204, 204, 1) 0%,
+    rgba(204, 204, 204, 1) 9%,
+    rgba(170, 170, 170, 1) 9%,
+    rgba(204, 204, 204, 1) 50%,
+    rgba(170, 170, 170, 1) 72%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.lockDigitContainer.depressed .lockDigitNext {
+  background: linear-gradient(
+    to bottom,
+    rgba(204, 204, 204, 1) 0%,
+    rgba(204, 204, 204, 1) 9%,
+    rgba(170, 170, 170, 1) 9%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
